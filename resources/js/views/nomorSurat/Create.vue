@@ -13,8 +13,8 @@ export default {
 		const router = useRouter();
 		const errorNomorSurat = ref(null);
 
-		const create = async (value) => {
-			await store
+		const create =  (value) => {
+			 store
 				.createNomorSurat(value)
 				.then(() => router.push("/nomor-surat"))
 				.catch((error) => {

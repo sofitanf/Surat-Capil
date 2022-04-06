@@ -32,7 +32,13 @@ class SuratKeluarController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'id' => 'unique:surat_keluar',
+            'id' => 'unique:surat_keluar|required',
+            'no_surat' => 'required',
+            'alamat_pengirim' => 'required',
+            'pengirim' => 'required',
+            'perihal' => 'required',
+            'tgl_surat' => 'required',
+            'kepada' => 'required',
         ],[
             'id.unique' => 'Nomor urut sudah ada',
         ]);
@@ -65,10 +71,20 @@ class SuratKeluarController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'id' => 'unique:surat_keluar',
+            'id' => 'unique:surat_keluar|required',
+            'no_surat' => 'required',
+            'alamat_pengirim' => 'required',
+            'pengirim' => 'required',
+            'perihal' => 'required',
+            'tgl_surat' => 'required',
+            'kepada' => 'required',
         ],[
             'id.unique' => 'Nomor urut sudah ada',
         ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
+        }
 
         $surat = SuratKeluar::findOrFail($id);
 

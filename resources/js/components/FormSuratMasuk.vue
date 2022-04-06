@@ -42,7 +42,7 @@
 		</form>
 	</div>
 </template>
-<script>
+<script >
 import { ref } from "vue";
 import { useForm, useField } from "vee-validate";
 import FormInput from "./base/Input.vue";

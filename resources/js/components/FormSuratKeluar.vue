@@ -77,13 +77,6 @@ export default {
 	},
 
 	setup(props, { emit }) {
-		// const surat = props.surat.map((item) => {
-		// 	item.toString();
-		// });
-
-		// for (const [key, value] of Object.entries(props.surat)) {
-		// 	value.toString();
-		// }
 		const { handleSubmit, errors } = useForm({
 			initialValues: props.surat,
 		});

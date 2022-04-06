@@ -8,6 +8,7 @@ use App\Http\Controllers\Resource;
 use App\Models\SuratMasuk;
 use Illuminate\Http\Request;
 use Carbon\Carbon as CarbonCarbon;
+use Illuminate\Support\Facades\Validator;
 use Maatwebsite\Excel\Facades\Excel;
 
 class SuratMasukController extends Controller
@@ -32,6 +33,20 @@ class SuratMasukController extends Controller
 
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'no_surat' => 'required',
+            'pengirim' => 'required',
+            'penerima' => 'required',
+            'perihal' => 'required',
+            'sifat' => 'required',
+            'tgl_surat' => 'required',
+            'tgl_diterima' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
+        }
+
         $surat = SuratMasuk::create([
             'no_surat' => $request->no_surat,
             'pengirim' => $request->pengirim,
@@ -55,6 +70,20 @@ class SuratMasukController extends Controller
 
     public function update(Request $request, $id)
     {
+        $validator = Validator::make($request->all(), [
+            'no_surat' => 'required',
+            'pengirim' => 'required',
+            'penerima' => 'required',
+            'perihal' => 'required',
+            'sifat' => 'required',
+            'tgl_surat' => 'required',
+            'tgl_diterima' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
+        }
+        
         $data = SuratMasuk::findOrFail($id);
         $data->no_surat=$request->no_surat;
         $data->tgl_diterima=$request->tgl_diterima;

@@ -27,8 +27,8 @@ export default {
 
 		const nomorSurat = computed(() => store.nomorSuratId);
 
-		const edit = async (value) => {
-			await store
+		const edit = (value) => {
+			store
 				.updateNomorSuratId({ id: id, payload: value })
 				.then(() => router.push("/nomor-surat"))
 				.catch((error) => {

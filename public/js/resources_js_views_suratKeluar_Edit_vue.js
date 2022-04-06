@@ -58,12 +58,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   setup: function setup(props, _ref) {
     var emit = _ref.emit;
 
-    // const surat = props.surat.map((item) => {
-    // 	item.toString();
-    // });
-    // for (const [key, value] of Object.entries(props.surat)) {
-    // 	value.toString();
-    // }
     var _useForm = (0,vee_validate__WEBPACK_IMPORTED_MODULE_6__.useForm)({
       initialValues: props.surat
     }),

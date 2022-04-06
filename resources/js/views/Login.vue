@@ -2,12 +2,7 @@
 	<div class="flex align-items-center justify-content-center p-8">
 		<div class="card grid p-fluid p-4 shadow-2 border-round w-full lg:w-4">
 			<div class="text-center mb-3 col-12">
-				<img
-					src="../../../public/images/pekalongan.png"
-					alt="Image"
-					height="60"
-					class="mb-3"
-				/>
+				<img src="images/pekalongan.png" alt="Image" height="60" class="mb-3" />
 				<div class="text-900 text-3xl font-medium mb-3">Aplikasi Surat</div>
 			</div>
 			<form class="col-12" @submit="onSubmit">
@@ -52,7 +47,7 @@ export default defineComponent({
 			auth
 				.login(values)
 				.then(() => router.go("/admin/dashboard"))
-				.catch((error) =>
+				.catch(() =>
 					toast.add({
 						severity: "error",
 						summary: "Login Gagal",
