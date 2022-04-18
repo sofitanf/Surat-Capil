@@ -71,7 +71,6 @@ class SuratKeluarController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'id' => 'unique:surat_keluar|required',
             'no_surat' => 'required',
             'alamat_pengirim' => 'required',
             'pengirim' => 'required',

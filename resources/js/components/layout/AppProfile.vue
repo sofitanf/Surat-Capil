@@ -2,7 +2,7 @@
 	<div class="layout-profile">
 		<div></div>
 		<button class="p-link layout-profile-link">
-			<span class="username">gary</span>
+			<span class="username">{{ user.nama }}</span>
 		</button>
 		<transition name="layout-submenu-wrapper">
 			<ul>
@@ -21,13 +21,14 @@ import { useRouter } from "vue-router";
 import { useAuth } from "../../store/auth";
 export default {
 	setup() {
-		const auth = useAuth();
+		const store = useAuth();
 		const router = useRouter();
 		const logout = () => {
-			auth.logout().then(() => router.push("/"));
+			store.logout().then(() => router.push("/"));
 		};
+		const user = store.user;
 
-		return { logout };
+		return { logout, user };
 	},
 };
 </script>

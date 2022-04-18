@@ -125,28 +125,20 @@ export default {
 				},
 				{
 					label: "Surat Masuk",
-					icon: "pi pi-fw pi-home",
+					icon: "pi pi-fw pi-envelope",
 					to: "/surat-masuk",
 				},
 				{
 					label: "Surat Keluar",
-					icon: "pi pi-fw pi-home",
+					icon: "pi pi-fw pi-envelope",
 					to: "/surat-keluar",
 				},
 				{
 					label: "Nomor Surat",
-					icon: "pi pi-fw pi-home",
+					icon: "pi pi-fw pi-ticket",
 					to: "/nomor-surat",
 				},
 			];
-
-			// if (this.$store.getters?.user?.role === "Admin") {
-			// 	item.push({
-			// 		label: "User",
-			// 		icon: "pi pi-fw pi-users",
-			// 		to: "/admin/user",
-			// 	});
-			// }
 
 			return item;
 		},

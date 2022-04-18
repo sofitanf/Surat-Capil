@@ -61,17 +61,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   setup: function setup() {
-    var auth = (0,_store_auth__WEBPACK_IMPORTED_MODULE_0__.useAuth)();
+    var store = (0,_store_auth__WEBPACK_IMPORTED_MODULE_0__.useAuth)();
     var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_1__.useRouter)();
 
     var logout = function logout() {
-      auth.logout().then(function () {
+      store.logout().then(function () {
         return router.push("/");
       });
     };
 
+    var user = store.user;
     return {
-      logout: logout
+      logout: logout,
+      user: user
     };
   }
 });
@@ -259,24 +261,17 @@ __webpack_require__.r(__webpack_exports__);
         to: "/dashboard"
       }, {
         label: "Surat Masuk",
-        icon: "pi pi-fw pi-home",
+        icon: "pi pi-fw pi-envelope",
         to: "/surat-masuk"
       }, {
         label: "Surat Keluar",
-        icon: "pi pi-fw pi-home",
+        icon: "pi pi-fw pi-envelope",
         to: "/surat-keluar"
       }, {
         label: "Nomor Surat",
-        icon: "pi pi-fw pi-home",
+        icon: "pi pi-fw pi-ticket",
         to: "/nomor-surat"
-      }]; // if (this.$store.getters?.user?.role === "Admin") {
-      // 	item.push({
-      // 		label: "User",
-      // 		icon: "pi pi-fw pi-users",
-      // 		to: "/admin/user",
-      // 	});
-      // }
-
+      }];
       return item;
     },
     containerClass: function containerClass() {
@@ -417,27 +412,28 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+var _hoisted_3 = {
   "class": "p-link layout-profile-link"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+};
+var _hoisted_4 = {
   "class": "username"
-}, "gary")], -1
-/* HOISTED */
-);
+};
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "pi pi-fw pi-power-off"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Keluar", -1
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Keluar", -1
 /* HOISTED */
 );
 
-var _hoisted_6 = [_hoisted_4, _hoisted_5];
+var _hoisted_7 = [_hoisted_5, _hoisted_6];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(vue__WEBPACK_IMPORTED_MODULE_0__.Transition, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.user.nama), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(vue__WEBPACK_IMPORTED_MODULE_0__.Transition, {
     name: "layout-submenu-wrapper"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -446,7 +442,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         onClick: _cache[0] || (_cache[0] = function () {
           return $setup.logout && $setup.logout.apply($setup, arguments);
         })
-      }, _hoisted_6)])])];
+      }, _hoisted_7)])])];
     }),
     _: 1
     /* STABLE */
